@@ -11,7 +11,7 @@ public class GameWindow extends JFrame
     setSize( 1024, 768 );
     setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     setVisible(true);
-    //createBufferStrategy( 2 );
+    createBufferStrategy( 2 );
 
 
   }

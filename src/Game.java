@@ -22,13 +22,13 @@ public abstract class Game
 
   protected void loadImages()
   {
-    bg = new ImageIcon( "/Users/tombeadman/Downloads/undergrowth-wallpaper-2880x1800.jpg" ).getImage();
+    bg = new ImageIcon( "/Users/tombeadman/Downloads/red.png" ).getImage();
 
     a = new Animation();
     a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-1-filled-icon.png" ).getImage(), 250 );
-    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-2-filled-icon.png" ).getImage(), 250 );
-    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-3-filled-icon.png" ).getImage(), 250 );
-    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-4-filled-icon.png" ).getImage(), 250 );
+    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-2-filled-icon.png" ).getImage(), 500 );
+    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-3-filled-icon.png" ).getImage(), 750 );
+    a.addScene( new ImageIcon( "/Users/tombeadman/Downloads/Numbers-4-filled-icon.png" ).getImage(), 1000 );
   }
 
 

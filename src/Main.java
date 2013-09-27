@@ -8,7 +8,7 @@ public class Main
 {
 
   private Game game;
-  private static boolean fullscreen = false;
+  private static Boolean fullscreen = false;
 
   public static void main( String[] args )
   {
@@ -20,6 +20,7 @@ public class Main
   {
     game = fullscreen ? new FullScreenGame() : new AppletGame();
     game.start();
+
 
   }
 }

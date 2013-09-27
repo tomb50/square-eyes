@@ -30,13 +30,14 @@ public class Animation
     if ( scenes.size() > 1 )
     {
       movieTime += timepassed;
-      if ( movieTime <= totalTime )
+      if ( movieTime >= totalTime )
       {
         movieTime = 0;
         sceneIndex = 0;
       }
       while(movieTime > getScene(sceneIndex).endTime)
       {
+        //Util.debug( "i = " +sceneIndex + ", movietime = " + movieTime + ", totaltime = " + totalTime );
         sceneIndex++;
       }
     }
@@ -53,7 +54,7 @@ public class Animation
   public synchronized Image getImage()
   {
 
-    return scenes.size()==0 ? getScene(sceneIndex).pic : null;
+    return scenes.size() !=0 ? getScene(sceneIndex).pic : null;
   }
 
   private SingleScene getScene( final int sceneIndex )

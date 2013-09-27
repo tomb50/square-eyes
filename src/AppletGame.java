@@ -20,8 +20,7 @@ public class AppletGame extends Game
   protected Graphics getGraphics()
   {
 
-    return gameWindow.getGraphics();
-    //return gameWindow.getBufferStrategy().getDrawGraphics();
+    return gameWindow.getBufferStrategy().getDrawGraphics();
   }
 
 
