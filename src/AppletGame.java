@@ -1,6 +1,3 @@
-import sun.java2d.SunGraphics2D;
-
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -9,12 +6,7 @@ import java.awt.*;
 public class AppletGame extends Game
 {
 
-  private GameWindow gameWindow;
-
-  public AppletGame()
-  {
-    gameWindow = new GameWindow();
-  }
+  protected GameWindow gameWindow;
 
 
   protected Graphics getGraphics()
@@ -23,15 +15,46 @@ public class AppletGame extends Game
     return gameWindow.getBufferStrategy().getDrawGraphics();
   }
 
+  @Override
+  protected void init()
+  {
+
+    gameWindow = new GameWindow();
+    gameWindow.setFont( new Font( "Arial", Font.PLAIN, 20 ) );
+    gameWindow.setBackground( Color.GREEN );
+    gameWindow.setForeground( Color.WHITE );
+    running = true;
+
+  }
+
+
+
+  @Override
+  protected int getGameWidth()
+  {
+    return gameWindow.getWidth();
+  }
+
+  @Override
+  protected int getGameHeight()
+  {
+    return gameWindow.getHeight();
+  }
+
+  @Override
+  public void draw( final Graphics2D graphics2D )
+  {
+
+  }
+
 
   protected void start()
   {
-
     run();
   }
 
 
-  protected void update()
+  protected void updateContent()
   {
     if ( !gameWindow.getBufferStrategy().contentsLost() ) gameWindow.getBufferStrategy().show();
   }

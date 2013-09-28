@@ -18,7 +18,7 @@ public class Main
 
   private void run()
   {
-    game = fullscreen ? new FullScreenGame() : new AppletGame();
+    game = fullscreen ? new FullScreenGame() : new MouseLookTest();
     game.start();
 
 

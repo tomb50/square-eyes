@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -22,22 +21,23 @@ public class FullScreenGame extends Game
   public void start()
   {
     sm = new ScreenManager();
-    try{
+    try
+    {
       DisplayMode dm = sm.findFirstCompatibleMode( DISPLAY_MODES );
       sm.setFullScreen( dm );
       run();
-
-    }finally{
+    }
+    finally
+    {
       sm.restoreScreen();
     }
   }
 
   @Override
-  protected void update()
+  protected void updateContent()
   {
-   sm.update();
+    sm.update();
   }
-
 
 
   protected Graphics getGraphics()
@@ -45,7 +45,36 @@ public class FullScreenGame extends Game
     return sm.getGraphics();
   }
 
+  @Override
+  protected void init()
+  {
+    sm = new ScreenManager();
+    DisplayMode dm = sm.findFirstCompatibleMode( DISPLAY_MODES );
+    sm.setFullScreen( dm );
 
+    Window w = sm.getFullScreenWindow();
+    w.setFont( new Font( "Arial", Font.PLAIN, 20 ) );
+    w.setBackground( Color.GREEN );
+    w.setForeground( Color.WHITE );
+    running = true;
+  }
 
+  @Override
+  protected int getGameWidth()
+  {
+    return sm.getWidth();
+  }
 
+  @Override
+  protected int getGameHeight()
+  {
+    return sm.getHeight();
+  }
+
+  @Override
+  public void draw( final Graphics2D graphics2D )
+  {
+
+  }
 }
+
