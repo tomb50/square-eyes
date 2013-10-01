@@ -1,3 +1,5 @@
+package tomb.rough.game;
+
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 24/09/2013 Time: 13:24
  */

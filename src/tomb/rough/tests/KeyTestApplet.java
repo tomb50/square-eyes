@@ -1,3 +1,7 @@
+package tomb.rough.tests;
+
+import tomb.rough.game.AppletGame;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

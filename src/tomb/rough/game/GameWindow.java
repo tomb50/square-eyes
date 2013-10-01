@@ -1,3 +1,5 @@
+package tomb.rough.game;
+
 import javax.swing.*;
 
 

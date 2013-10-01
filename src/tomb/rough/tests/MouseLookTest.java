@@ -1,3 +1,7 @@
+package tomb.rough.tests;
+
+import tomb.rough.game.AppletGame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -123,4 +127,6 @@ public class MouseLookTest extends AppletGame implements KeyListener, MouseMotio
     mouse.x = e.getX();
     mouse.y = e.getY();
   }
+
+
 }

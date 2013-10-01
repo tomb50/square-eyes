@@ -1,3 +1,5 @@
+package tomb.rough.game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,7 +20,7 @@ public abstract class Game
   protected abstract Graphics getGraphics();
 
 
-  protected void run()
+  public void run()
   {
     try
     {
