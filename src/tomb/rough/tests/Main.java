@@ -1,7 +1,7 @@
 package tomb.rough.tests;
 
-import tomb.rough.game.FullScreenGame;
-import tomb.rough.game.Game;
+import tomb.rough.game.FullScreenAbstractGame;
+import tomb.rough.game.AbstractGame;
 
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 23/09/2013 Time: 15:50
@@ -9,7 +9,7 @@ import tomb.rough.game.Game;
 public class Main
 {
 
-  private Game game;
+  private AbstractGame abstractGame;
   private static Boolean fullscreen = false;
 
   public static void main( String[] args )
@@ -20,8 +20,8 @@ public class Main
 
   private void run()
   {
-    game = fullscreen ? new FullScreenGame() : new MouseLookTest();
-    game.run();
+    abstractGame = fullscreen ? new FullScreenAbstractGame() : new MouseLookTest();
+    abstractGame.run();
 
 
   }

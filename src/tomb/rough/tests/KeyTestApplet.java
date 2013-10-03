@@ -1,6 +1,6 @@
 package tomb.rough.tests;
 
-import tomb.rough.game.AppletGame;
+import tomb.rough.game.AppletAbstractGame;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 28/09/2013 Time: 12:28
  */
-public class KeyTestApplet extends AppletGame implements KeyListener
+public class KeyTestApplet extends AppletAbstractGame implements KeyListener
 {
 
   private String mess = null;

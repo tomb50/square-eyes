@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 23/09/2013 Time: 19:27
  */
-public abstract class Game
+public abstract class AbstractGame
 {
   protected Image bg;
   protected Animation a;

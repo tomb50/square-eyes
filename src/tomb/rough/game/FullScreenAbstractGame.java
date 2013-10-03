@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 23/09/2013 Time: 19:27
  */
-public class FullScreenGame extends Game
+public class FullScreenAbstractGame extends AbstractGame
 {
 
   private ScreenManager sm;

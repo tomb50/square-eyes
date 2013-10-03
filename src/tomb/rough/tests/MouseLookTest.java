@@ -1,6 +1,6 @@
 package tomb.rough.tests;
 
-import tomb.rough.game.AppletGame;
+import tomb.rough.game.AppletAbstractGame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.awt.event.MouseMotionListener;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 28/09/2013 Time: 15:31
  */
-public class MouseLookTest extends AppletGame implements KeyListener, MouseMotionListener
+public class MouseLookTest extends AppletAbstractGame implements KeyListener, MouseMotionListener
 {
 
   private Image bg;

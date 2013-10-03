@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 23/09/2013 Time: 19:27
  */
-public class AppletGame extends Game
+public class AppletAbstractGame extends AbstractGame
 {
 
   protected GameWindow gameWindow;

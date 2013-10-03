@@ -1,6 +1,6 @@
 package tomb.rough.tests;
 
-import tomb.rough.game.AppletGame;
+import tomb.rough.game.AppletAbstractGame;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,7 +8,7 @@ import java.awt.event.*;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 28/09/2013 Time: 15:12
  */
-public class AppletMouseTest  extends AppletGame implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener
+public class AppletMouseTest  extends AppletAbstractGame implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener
 {
 
   private String mess = "";
