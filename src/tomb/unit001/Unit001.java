@@ -6,6 +6,7 @@ import tomb.unit001.screens.SplashScreen;
 
 public class Unit001 extends Game implements ApplicationListener {
   public static final String VERSION = "0.1" ;
+  public static final String LOG = "Unit001";
 
   @Override
   public void create()

@@ -1,9 +1,6 @@
 package tomb.unit001.screens;
 
-import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenEquation;
-import aurelienribon.tweenengine.TweenEquations;
-import aurelienribon.tweenengine.TweenManager;
+import aurelienribon.tweenengine.*;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -61,6 +58,8 @@ public class SplashScreen implements Screen
 
     splashSprite = new Sprite( splashTexture );
     splashSprite.setColor( 1,1,1,0 );
+    splashSprite.setX( ( Gdx.graphics.getWidth() - splashSprite.getWidth() ) / 2 );
+    splashSprite.setY( ( Gdx.graphics.getHeight() - splashSprite.getHeight() ) / 2 );
 
 
     spriteBatch = new SpriteBatch(  );
@@ -71,10 +70,25 @@ public class SplashScreen implements Screen
 
     manager = new TweenManager();
 
-    Tween.to(splashSprite,SpriteTween.ALPHA,3f).target( 1 ).ease( TweenEquations.easeInOutQuad ).start(manager);
 
+    TweenCallback tweenCallback = new TweenCallback()
+    {
+      @Override
+      public void onEvent( final int i, final BaseTween<?> baseTween )
+      {
+       tweenCompleted();
+      }
+    };
 
+    Tween.to( splashSprite, SpriteTween.ALPHA, 1f ).target( 1 ).ease( TweenEquations.easeInQuad ).repeatYoyo(1,2.5f).setCallback(
+      tweenCallback ).setCallbackTriggers(
+      TweenCallback.COMPLETE ).start( manager );
+  }
 
+  private void tweenCompleted()
+  {
+   Gdx.app.log( Unit001.LOG, "Tween Complete" );
+    game.setScreen( new MainMenu(game) );
   }
 
   @Override
