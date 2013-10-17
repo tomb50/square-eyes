@@ -1,6 +1,8 @@
 package tomb.unit001.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL10;
 import tomb.unit001.Unit001;
 import tomb.unit001.view.World;
 import tomb.unit001.view.WorldRenderer;
@@ -24,7 +26,11 @@ public class Game implements Screen
   @Override
   public void render( final float delta )
   {
-  world.update();
+
+    Gdx.gl.glClearColor( 0,0,0,1 );
+    Gdx.gl.glClear( GL10.GL_COLOR_BUFFER_BIT );
+
+    world.update();
   renderer.render();
   }
 
