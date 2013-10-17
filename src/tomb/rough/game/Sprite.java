@@ -55,13 +55,13 @@ public class Sprite
   private float vx;
   private float vy;
 
-  public Sprite(Animation a)
+  public Sprite( Animation a )
   {
     this.a = a;
   }
 
 
-  public void update(long timePassed)
+  public void update( long timePassed )
   {
     x += vx * timePassed;
     y += vy * timePassed;
@@ -82,5 +82,4 @@ public class Sprite
   {
     return a.getImage();
   }
-
 }

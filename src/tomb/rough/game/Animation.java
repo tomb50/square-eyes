@@ -37,7 +37,7 @@ public class Animation
         movieTime = 0;
         sceneIndex = 0;
       }
-      while(movieTime > getScene(sceneIndex).endTime)
+      while ( movieTime > getScene( sceneIndex ).endTime )
       {
         //tomb.rough.game.Util.debug( "i = " +sceneIndex + ", movietime = " + movieTime + ", totaltime = " + totalTime );
         sceneIndex++;
@@ -56,18 +56,19 @@ public class Animation
   public synchronized Image getImage()
   {
 
-    return scenes.size() !=0 ? getScene(sceneIndex).pic : null;
+    return scenes.size() != 0 ? getScene( sceneIndex ).pic : null;
   }
 
   private SingleScene getScene( final int sceneIndex )
   {
-    return (SingleScene) scenes.get(sceneIndex);
+    return (SingleScene) scenes.get( sceneIndex );
   }
 
   private class SingleScene
   {
     Image pic;
     long endTime;
+
     public SingleScene( final Image pic, final long endTime )
     {
       this.pic = pic;

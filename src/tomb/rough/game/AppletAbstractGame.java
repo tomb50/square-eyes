@@ -26,9 +26,7 @@ public class AppletAbstractGame extends AbstractGame
     gameWindow.setBackground( Color.GREEN );
     gameWindow.setForeground( Color.WHITE );
     running = true;
-
   }
-
 
 
   @Override

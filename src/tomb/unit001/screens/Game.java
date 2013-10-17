@@ -27,11 +27,11 @@ public class Game implements Screen
   public void render( final float delta )
   {
 
-    Gdx.gl.glClearColor( 0,0,0,1 );
+    Gdx.gl.glClearColor( 0, 0, 0, 1 );
     Gdx.gl.glClear( GL10.GL_COLOR_BUFFER_BIT );
 
     world.update();
-  renderer.render();
+    renderer.render();
   }
 
   @Override
@@ -49,8 +49,7 @@ public class Game implements Screen
   @Override
   public void hide()
   {
-   dispose();
-
+    dispose();
   }
 
   @Override
@@ -70,6 +69,5 @@ public class Game implements Screen
   {
     world.dispose();
     renderer.dispose();
-
   }
 }

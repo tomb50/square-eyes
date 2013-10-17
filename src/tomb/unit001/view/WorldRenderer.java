@@ -19,9 +19,9 @@ public class WorldRenderer
 
   public WorldRenderer( final World world )
   {
-      this.world = world;
-    batch = new SpriteBatch(  );
-    cam = new OrthographicCamera(  );
+    this.world = world;
+    batch = new SpriteBatch();
+    cam = new OrthographicCamera();
     shipTexture = new Texture( "assets/data/ship.png" );
   }
 
@@ -38,6 +38,4 @@ public class WorldRenderer
     batch.dispose();
     shipTexture.dispose();
   }
-
-
 }

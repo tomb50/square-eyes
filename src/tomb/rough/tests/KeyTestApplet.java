@@ -13,36 +13,36 @@ public class KeyTestApplet extends AppletAbstractGame implements KeyListener
 {
 
   private String mess = null;
+
   public void init()
   {
     super.init();
     gameWindow.setFocusTraversalKeysEnabled( false );
     gameWindow.addKeyListener( this );
     mess = "press escape to exit";
-
   }
 
   public synchronized void draw( final Graphics2D graphics2D )
   {
-   graphics2D.setColor( gameWindow.getBackground() );
-   graphics2D.fillRect( 0,0,getGameWidth(),getGameHeight() );
+    graphics2D.setColor( gameWindow.getBackground() );
+    graphics2D.fillRect( 0, 0, getGameWidth(), getGameHeight() );
     graphics2D.setColor( gameWindow.getForeground() );
-    graphics2D.drawString( mess,100,100 );
+    graphics2D.drawString( mess, 100, 100 );
   }
 
   @Override
   public void keyTyped( final KeyEvent e )
   {
-   e.consume();
+    e.consume();
   }
 
   @Override
   public void keyPressed( final KeyEvent e )
   {
     int keyCode = e.getKeyCode();
-    if(keyCode == KeyEvent.VK_ESCAPE){
+    if ( keyCode == KeyEvent.VK_ESCAPE )
+    {
       stop();
-
     }
     else
     {

@@ -8,7 +8,8 @@ import java.awt.event.*;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 28/09/2013 Time: 15:12
  */
-public class AppletMouseTest  extends AppletAbstractGame implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener
+public class AppletMouseTest extends AppletAbstractGame
+  implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener
 {
 
   private String mess = "";
@@ -22,13 +23,14 @@ public class AppletMouseTest  extends AppletAbstractGame implements KeyListener,
     gameWindow.addKeyListener( this );
   }
 
-  public synchronized void  draw(Graphics2D g)
+  public synchronized void draw( Graphics2D g )
   {
     g.setColor( gameWindow.getBackground() );
-    g.fillRect( 0,0, gameWindow.getWidth(), gameWindow.getHeight() );
-    g.setColor(gameWindow.getForeground() );
-    g.drawString( mess,100,100 );
+    g.fillRect( 0, 0, gameWindow.getWidth(), gameWindow.getHeight() );
+    g.setColor( gameWindow.getForeground() );
+    g.drawString( mess, 100, 100 );
   }
+
   @Override
   public void keyTyped( final KeyEvent e )
   {
@@ -39,9 +41,9 @@ public class AppletMouseTest  extends AppletAbstractGame implements KeyListener,
   public void keyPressed( final KeyEvent e )
   {
     int keyCode = e.getKeyCode();
-    if(keyCode == KeyEvent.VK_ESCAPE){
+    if ( keyCode == KeyEvent.VK_ESCAPE )
+    {
       stop();
-
     }
     else
     {
@@ -67,13 +69,12 @@ public class AppletMouseTest  extends AppletAbstractGame implements KeyListener,
   public void mousePressed( final MouseEvent e )
   {
     mess = "Mouse pressed";
-
   }
 
   @Override
   public void mouseReleased( final MouseEvent e )
   {
-   mess = "mouse released";
+    mess = "mouse released";
   }
 
   @Override
@@ -97,8 +98,7 @@ public class AppletMouseTest  extends AppletAbstractGame implements KeyListener,
   @Override
   public void mouseMoved( final MouseEvent e )
   {
-    mess="mouse moved";
-
+    mess = "mouse moved";
   }
 
   @Override

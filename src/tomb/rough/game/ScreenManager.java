@@ -90,57 +90,78 @@ public class ScreenManager
   public Graphics2D getGraphics()
   {
     Window w = vc.getFullScreenWindow();
-    if(w !=null)
+    if ( w != null )
     {
       BufferStrategy s = w.getBufferStrategy();
-      return (Graphics2D)s.getDrawGraphics();
-    }else{return null;}
+      return (Graphics2D) s.getDrawGraphics();
+    }
+    else
+    {
+      return null;
+    }
   }
 
   public void update()
   {
     Window w = vc.getFullScreenWindow();
-    if(w != null)
+    if ( w != null )
     {
       BufferStrategy s = w.getBufferStrategy();
-      if(!s.contentsLost()){s.show();}
+      if ( !s.contentsLost() )
+      {
+        s.show();
+      }
     }
   }
 
-  public Window getFullScreenWindow() {
+  public Window getFullScreenWindow()
+  {
     return vc.getFullScreenWindow();
   }
 
   public int getWidth()
   {
     Window w = vc.getFullScreenWindow();
-    if(w !=null) return w.getWidth();
-    else return 0;
+    if ( w != null )
+    {
+      return w.getWidth();
+    }
+    else
+    {
+      return 0;
+    }
   }
 
   public int getHeight()
   {
     Window w = vc.getFullScreenWindow();
-    if(w !=null) return w.getHeight();
-    else return 0;
+    if ( w != null )
+    {
+      return w.getHeight();
+    }
+    else
+    {
+      return 0;
+    }
   }
 
- public void restoreScreen()  {
-   Window w = vc.getFullScreenWindow();
-   if(w!=null)
-   {
-     w.dispose();
-   }
-   vc.setFullScreenWindow( null );
- }
+  public void restoreScreen()
+  {
+    Window w = vc.getFullScreenWindow();
+    if ( w != null )
+    {
+      w.dispose();
+    }
+    vc.setFullScreenWindow( null );
+  }
 
-  public BufferedImage createCompatibleImage(int w, int h, int t)
+  public BufferedImage createCompatibleImage( int w, int h, int t )
   {
     Window gameWindow = vc.getFullScreenWindow();
-    if( gameWindow !=null)
+    if ( gameWindow != null )
     {
       GraphicsConfiguration gc = gameWindow.getGraphicsConfiguration();
-      return gc.createCompatibleImage( w,h,t );
+      return gc.createCompatibleImage( w, h, t );
     }
     return null;
   }

@@ -82,10 +82,8 @@ public abstract class AbstractGame
       catch ( Exception ignored )
       {
       }
-
     }
     System.exit( 0 );
-
   }
 
 
@@ -122,10 +120,10 @@ public abstract class AbstractGame
 
   protected abstract int getGameHeight();
 
-  public void update(long timePassed)
+  public void update( long timePassed )
   {
 
   }
 
-  public abstract void draw(Graphics2D graphics2D);
+  public abstract void draw( Graphics2D graphics2D );
 }

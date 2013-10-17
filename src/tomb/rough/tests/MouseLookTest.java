@@ -43,9 +43,10 @@ public class MouseLookTest extends AppletAbstractGame implements KeyListener, Mo
 
     gameWindow.addMouseMotionListener( this );
     gameWindow.addKeyListener( this );
-    bg = new ImageIcon( "/Users/tombeadman/Downloads/MH3U_NA_Boxart.jpg" ).getImage().getScaledInstance( gameWindow.getWidth(),
-                                                                                              gameWindow.getHeight(),
-                                                                                              Image.SCALE_DEFAULT );
+    bg = new ImageIcon( "/Users/tombeadman/Downloads/MH3U_NA_Boxart.jpg" ).getImage().getScaledInstance(
+      gameWindow.getWidth(),
+      gameWindow.getHeight(),
+      Image.SCALE_DEFAULT );
   }
 
   public synchronized void draw( Graphics2D g )
@@ -127,6 +128,4 @@ public class MouseLookTest extends AppletAbstractGame implements KeyListener, Mo
     mouse.x = e.getX();
     mouse.y = e.getY();
   }
-
-
 }
