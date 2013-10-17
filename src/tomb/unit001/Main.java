@@ -7,7 +7,7 @@ public class Main {
   public static void main(String[] args) {
     LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
     cfg.title = "Unit001 " + Unit001.VERSION;
-    cfg.useGL20 = false;
+    cfg.useGL20 = true;
     cfg.width = 1080;
     cfg.height = 720;
 
