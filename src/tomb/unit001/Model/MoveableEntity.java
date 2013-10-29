@@ -13,6 +13,7 @@ public abstract class MoveableEntity extends Entity
     super( position, width, height );
     this.SPEED = SPEED;
     this.rotation = rotation;
+    velocity = new Vector2( 0,0 );
   }
 
   protected Vector2 velocity;
@@ -41,5 +42,9 @@ public abstract class MoveableEntity extends Entity
     this.rotation = rotation;
   }
 
-  public abstract void update();
+  public void update( final Ship ship )
+  {
+    bounds.x = position.x;
+    bounds.y = position.y;
+  }
 }

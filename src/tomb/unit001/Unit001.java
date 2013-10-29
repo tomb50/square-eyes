@@ -2,6 +2,7 @@ package tomb.unit001;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.FPSLogger;
 import tomb.unit001.screens.GameScreen;
 import tomb.unit001.screens.SplashScreen;
 
@@ -9,10 +10,12 @@ public class Unit001 extends Game implements ApplicationListener
 {
   public static final String VERSION = "0.1";
   public static final String LOG = "Unit001";
+  FPSLogger logger;
 
   @Override
   public void create()
   {
+    logger = new FPSLogger();
     setScreen( new GameScreen( this ) );
   }
 
@@ -26,6 +29,7 @@ public class Unit001 extends Game implements ApplicationListener
   public void render()
   {
     super.render();
+    logger.log();
   }
 
   @Override
