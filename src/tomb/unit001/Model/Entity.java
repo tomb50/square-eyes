@@ -64,5 +64,4 @@ public abstract class Entity
   {
     this.bounds = bounds;
   }
-
 }

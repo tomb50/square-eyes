@@ -13,5 +13,5 @@ public abstract class Enemy extends MoveableEntity
     super( SPEED, rotation, position, width, height );
   }
 
-  public abstract void advance(float delta, Ship ship);
+  public abstract void advance( float delta, Ship ship );
 }

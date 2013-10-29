@@ -10,13 +10,13 @@ import tomb.unit001.view.WorldRenderer;
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 17/10/2013 Time: 15:14
  */
-public class Game implements Screen
+public class GameScreen implements Screen
 {
   Unit001 game;
   World world;
   WorldRenderer renderer;
 
-  public Game( final Unit001 game )
+  public GameScreen( final Unit001 game )
   {
     this.game = game;
     world = new World( game );

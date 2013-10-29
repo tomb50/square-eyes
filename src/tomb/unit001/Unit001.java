@@ -2,6 +2,7 @@ package tomb.unit001;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import tomb.unit001.screens.GameScreen;
 import tomb.unit001.screens.SplashScreen;
 
 public class Unit001 extends Game implements ApplicationListener
@@ -12,7 +13,7 @@ public class Unit001 extends Game implements ApplicationListener
   @Override
   public void create()
   {
-    setScreen( new SplashScreen( this ) );
+    setScreen( new GameScreen( this ) );
   }
 
   @Override
