@@ -2,6 +2,9 @@ package tomb.unit001.view;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import tomb.unit001.model.Bullet;
 import tomb.unit001.model.Ship;
 
 /**
@@ -12,6 +15,8 @@ public class InputHandler implements InputProcessor
 
   private final World world;
   final Ship ship;
+  Vector3 touch = new Vector3(  );
+  Vector2 vec2Touch = new Vector2();
 
   public InputHandler(World world)
   {
@@ -74,7 +79,12 @@ public class InputHandler implements InputProcessor
   @Override
   public boolean touchDown( final int screenX, final int screenY, final int pointer, final int button )
   {
-    return false;
+    touch.set( screenX,screenY,0 );
+    world.getRenderer().getCamera().unproject( touch );
+    vec2Touch.set( touch.x, touch.y );
+    world.addBullet( new Bullet( Bullet.SPEED, 0, new Vector2( ship.getPosition().x, ship.getPosition().y ),
+                                 new Vector2( vec2Touch.sub( ship.getPosition()  ) ) , .1f, 8/20f ));
+    return true;
   }
 
   @Override

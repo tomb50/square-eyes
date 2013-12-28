@@ -7,8 +7,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.Array;
+import tomb.unit001.model.Bullet;
+import tomb.unit001.model.Enemy;
 import tomb.unit001.model.Follower;
 import tomb.unit001.model.Ship;
+
+import java.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA. User: tombeadman Date: 17/10/2013 Time: 16:10
@@ -19,16 +24,24 @@ public class WorldRenderer
   SpriteBatch batch;
   OrthographicCamera cam;
   World world;
-  Texture shipTexture, followerTexture;
+  Texture shipTexture, followerTexture, bulletTexture;
   Ship ship;
   float width, height;
   ShapeRenderer shapeRenderer;
-  Follower follower;
+  Array<Enemy> enemies;
+  Enemy e;
+  Array<Bullet> bullets = new Array<Bullet>();
+  Iterator<Bullet> iterator;
+  Bullet b;
+  Iterator<Enemy> eIterator;
+
 
   public WorldRenderer( final World world )
   {
     this.world = world;
-    follower = world.getFollower();
+
+    world.setWorldRenderer( this );
+    enemies = world.getEnemies();
 
     width =  Gdx.graphics.getWidth() / 40;
     height =  Gdx.graphics.getHeight() / 40;
@@ -46,6 +59,9 @@ public class WorldRenderer
     shipTexture.setFilter( Texture.TextureFilter.Linear, Texture.TextureFilter.Linear );
     followerTexture = new Texture("assets/data/follower.png");
     followerTexture.setFilter( Texture.TextureFilter.Linear, Texture.TextureFilter.Linear  );
+
+    bulletTexture = new Texture("assets/data/bullet.png");
+    bulletTexture.setFilter( Texture.TextureFilter.Linear, Texture.TextureFilter.Linear  );
     shapeRenderer = new ShapeRenderer(  );
 
   }
@@ -56,6 +72,9 @@ public class WorldRenderer
     Gdx.gl.glClear( GL10.GL_COLOR_BUFFER_BIT );
 
     ship = world.getShip();
+    enemies = world.getEnemies();
+    bullets = world.getBullets();
+
     cam.position.set( ship.getPosition().x, ship.getPosition().y,0 );
     cam.update();
     batch.setProjectionMatrix( cam.combined );
@@ -63,10 +82,29 @@ public class WorldRenderer
     batch.draw( shipTexture, ship.getPosition().x, ship.getPosition().y, ship.getWidth() / 2, ship.getHieght() / 2,
                 ship.getWidth(), ship.getHieght(), 1, 1,
                 ship.getRotation(), 0, 0, shipTexture.getWidth(), shipTexture.getHeight(), false, false );
-    batch.draw( followerTexture, follower.getPosition().x, follower.getPosition().y, follower.getWidth() / 2,
-                follower.getHieght() / 2,
-                follower.getWidth(), follower.getHieght(), 1, 1,
-                follower.getRotation(), 0, 0, followerTexture.getWidth(), followerTexture.getHeight(), false, false );
+
+
+    eIterator = enemies.iterator();
+    while(eIterator.hasNext())
+    {
+      e = eIterator.next();
+      batch.draw(followerTexture, e.getPosition().x, e.getPosition().y, e.getWidth() / 2,
+                 e.getHieght() / 2,
+                 e.getWidth(), e.getHieght(), 1, 1,
+                 e.getRotation(), 0, 0, followerTexture.getWidth(), followerTexture.getHeight(), false, false );
+
+    }
+
+    iterator = bullets.iterator();
+    while(iterator.hasNext())
+    {
+      b = iterator.next();
+      batch.draw(bulletTexture, b.getPosition().x, b.getPosition().y, b.getWidth() / 2,
+                 b.getHieght() / 2,
+                 b.getWidth(), b.getHieght(), 1, 1,
+                 b.getRotation(), 0, 0, bulletTexture.getWidth(), bulletTexture.getHeight(), false, false );
+
+    }
     batch.end();
 
     shapeRenderer.setProjectionMatrix( cam.combined );
@@ -76,10 +114,20 @@ public class WorldRenderer
     shapeRenderer.setColor( Color.CYAN );
     shapeRenderer.rect( ship.getBounds().x, ship.getBounds().y, ship.getBounds().width, ship.getBounds().height );
     shapeRenderer.setColor( Color.RED );
-    shapeRenderer.rect( follower.getBounds().x, follower.getBounds().y, follower.getBounds().width, follower.getBounds().height );
+    eIterator = enemies.iterator();
+    while(eIterator.hasNext())
+    {
+      e = eIterator.next();
+    shapeRenderer.rect( e.getBounds().x, e.getBounds().y, e.getBounds().width, e.getBounds().height );
+    }
 
 
     shapeRenderer.end();
+  }
+
+  public OrthographicCamera getCamera()
+  {
+    return cam;
   }
 
   public void dispose()

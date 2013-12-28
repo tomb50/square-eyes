@@ -54,7 +54,7 @@ public abstract class Entity
   }
 
 
-  Rectangle getBounds()
+  public Rectangle getBounds()
   {
     return bounds;
   }

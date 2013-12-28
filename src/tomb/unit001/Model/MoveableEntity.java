@@ -20,8 +20,6 @@ public abstract class MoveableEntity extends Entity
   protected float SPEED;
   protected float rotation;
 
-  abstract void advance( float delta );
-
   public Vector2 getVelocity()
   {
     return velocity;
