@@ -89,6 +89,7 @@ public class World
         if ( enemy.getBounds().overlaps( b.getBounds() ) )
         {
           Gdx.app.log( Unit001.LOG, "enemy hit by bullet!" );
+          Unit001Audio.hit();
           eIter.remove();
           bIter.remove();
         }

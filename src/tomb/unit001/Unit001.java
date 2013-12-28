@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.FPSLogger;
 import tomb.unit001.screens.GameScreen;
+import tomb.unit001.screens.MainMenu;
 import tomb.unit001.screens.SplashScreen;
+import tomb.unit001.view.Unit001Audio;
 
 public class Unit001 extends Game implements ApplicationListener
 {
@@ -16,7 +18,8 @@ public class Unit001 extends Game implements ApplicationListener
   public void create()
   {
     logger = new FPSLogger();
-    setScreen( new GameScreen( this ) );
+    Unit001Audio.playMusic( true );
+    setScreen( new MainMenu( this ) );
   }
 
   @Override
@@ -48,5 +51,6 @@ public class Unit001 extends Game implements ApplicationListener
   public void dispose()
   {
     super.dispose();
+    Unit001Audio.dispose();
   }
 }

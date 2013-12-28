@@ -84,6 +84,7 @@ public class InputHandler implements InputProcessor
     vec2Touch.set( touch.x, touch.y );
     world.addBullet( new Bullet( Bullet.SPEED, 0, new Vector2( ship.getPosition().x, ship.getPosition().y ),
                                  new Vector2( vec2Touch.sub( ship.getPosition()  ) ) , .1f, 8/20f ));
+    Unit001Audio.shoot();
     return true;
   }
 

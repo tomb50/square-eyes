@@ -166,6 +166,9 @@ public class WorldRenderer
   {
     batch.dispose();
     shipTexture.dispose();
+    followerTexture.dispose();
+    bulletTexture.dispose();
     shapeRenderer.dispose();
+
   }
 }
