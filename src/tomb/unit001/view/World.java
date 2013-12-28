@@ -62,9 +62,13 @@ public class World
     while ( eIter.hasNext() )
     {
       enemy = eIter.next();
-
-
       enemy.advance( Gdx.graphics.getDeltaTime(), ship );
+
+      if ( ship.getBounds().overlaps( enemy.getBounds() ) )
+    {
+      Gdx.app.log( Unit001.LOG, "Hit" );
+    }
+
     }
 
 
@@ -80,10 +84,7 @@ public class World
         enemy = eIter.next();
 
 
-        if ( ship.getBounds().overlaps( enemy.getBounds() ) )
-        {
-          Gdx.app.log( Unit001.LOG, "Hit" );
-        }
+
 
         if ( enemy.getBounds().overlaps( b.getBounds() ) )
         {

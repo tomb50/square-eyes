@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEmitter;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
@@ -21,6 +23,7 @@ import java.util.Iterator;
 public class WorldRenderer
 
 {
+  ParticleEmitter exhaust;
   SpriteBatch batch;
   OrthographicCamera cam;
   World world;
@@ -64,6 +67,20 @@ public class WorldRenderer
     bulletTexture.setFilter( Texture.TextureFilter.Linear, Texture.TextureFilter.Linear  );
     shapeRenderer = new ShapeRenderer(  );
 
+    exhaust = new ParticleEmitter(  );
+
+    try {
+      exhaust.load( Gdx.files.internal( "assets/data/exhaust" ).reader( 2024 ) );
+    }catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    Texture particleTexture = new Texture(Gdx.files.internal( "assets/data/particle.png" ));
+    Sprite particle = new Sprite( particleTexture );
+    exhaust.setSprite( particle );
+    exhaust.getScale().setHigh( 0.3f );
+    exhaust.start();
+
   }
 
   public void render()
@@ -75,10 +92,16 @@ public class WorldRenderer
     enemies = world.getEnemies();
     bullets = world.getBullets();
 
+
+    exhaust.setPosition( ship.getPosition().x + ship.getWidth()/2, ship.getPosition().y + ship.getHieght()/2 );
+
+    setExhaustRotation();
+
     cam.position.set( ship.getPosition().x, ship.getPosition().y,0 );
     cam.update();
     batch.setProjectionMatrix( cam.combined );
     batch.begin();
+    exhaust.draw( batch,Gdx.graphics.getDeltaTime() );
     batch.draw( shipTexture, ship.getPosition().x, ship.getPosition().y, ship.getWidth() / 2, ship.getHieght() / 2,
                 ship.getWidth(), ship.getHieght(), 1, 1,
                 ship.getRotation(), 0, 0, shipTexture.getWidth(), shipTexture.getHeight(), false, false );
@@ -123,6 +146,15 @@ public class WorldRenderer
 
 
     shapeRenderer.end();
+  }
+
+  private void setExhaustRotation()
+  {
+    float angle = ship.getRotation();
+    exhaust.getAngle().setLow( angle + 270 );
+    exhaust.getAngle().setHighMin( angle+270-45 );
+    exhaust.getAngle().setHighMax( angle+270+45 );
+
   }
 
   public OrthographicCamera getCamera()
